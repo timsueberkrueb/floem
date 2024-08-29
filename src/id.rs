@@ -347,7 +347,7 @@ impl ViewId {
     }
 
     /// `viewport` is relative to the `id` view.
-    pub(crate) fn set_viewport(&self, viewport: Rect) {
+    pub fn set_viewport(&self, viewport: Rect) {
         let state = self.state();
         state.borrow_mut().viewport = Some(viewport);
     }
