@@ -95,7 +95,7 @@ impl<'a> EventCx<'a> {
     // }
 
     /// Internal method used by Floem. This can be called from parent `View`s to propagate an event to the child `View`.
-    pub(crate) fn unconditional_view_event(
+    pub fn unconditional_view_event(
         &mut self,
         view_id: ViewId,
         event: Event,
@@ -1075,6 +1075,10 @@ impl<'a> PaintCx<'a> {
                 .with_origin(rect.origin() - Vec2::new(offset.0, offset.1))
                 .to_rounded_rect(raidus);
         }
+    }
+
+    pub fn set_scale(&mut self, scale: f64) {
+        self.paint_state.set_scale(scale);
     }
 
     pub fn transform(&mut self, id: ViewId) -> Size {
