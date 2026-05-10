@@ -477,10 +477,11 @@ dependencies = [
 
 [[package]]
 name = "borsh"
-version = "1.6.0"
+version = "1.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d1da5ab77c1437701eeff7c88d968729e7766172279eab0676857b3d63af7a6f"
+checksum = "cfd1e3f8955a5d7de9fab72fc8373fade9fb8a703968cb200ae3dc6cf08e185a"
 dependencies = [
+ "bytes",
  "cfg_aliases",
 ]
 
@@ -1249,7 +1250,7 @@ checksum = "d8b14ccef22fc6f5a8f4d7d768562a182c04ce9a3b3157b91390b52ddfdf1a76"
 [[package]]
 name = "dpi"
 version = "0.1.2"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
+source = "git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316#f98ccf8efc5e3f6dd3e31b705178603f6556d316"
 dependencies = [
  "serde",
 ]
@@ -1547,7 +1548,6 @@ dependencies = [
  "dpi 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "educe",
  "floem-editor-core",
- "floem-winit",
  "floem_reactive",
  "floem_renderer",
  "floem_skia_renderer",
@@ -1594,6 +1594,7 @@ dependencies = [
  "wasm-bindgen-futures",
  "web-time",
  "wgpu",
+ "winit",
 ]
 
 [[package]]
@@ -1632,223 +1633,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "floem-winit"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "bitflags 2.11.0",
- "cfg_aliases",
- "cursor-icon",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-android",
- "floem-winit-appkit",
- "floem-winit-common",
- "floem-winit-core",
- "floem-winit-orbital",
- "floem-winit-uikit",
- "floem-winit-wayland",
- "floem-winit-web",
- "floem-winit-win32",
- "floem-winit-x11",
- "libc",
- "raw-window-handle",
- "rustix",
- "serde",
- "smol_str 0.3.6",
- "tracing",
-]
-
-[[package]]
-name = "floem-winit-android"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "android-activity",
- "bitflags 2.11.0",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-core",
- "ndk",
- "raw-window-handle",
- "smol_str 0.3.6",
- "tracing",
-]
-
-[[package]]
-name = "floem-winit-appkit"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "bitflags 2.11.0",
- "block2 0.6.2",
- "dispatch2",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-common",
- "floem-winit-core",
- "objc2 0.6.4",
- "objc2-app-kit 0.3.2",
- "objc2-core-foundation",
- "objc2-core-graphics",
- "objc2-core-video",
- "objc2-foundation 0.3.2",
- "raw-window-handle",
- "smol_str 0.3.6",
- "tracing",
-]
-
-[[package]]
-name = "floem-winit-common"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "floem-winit-core",
- "memmap2",
- "objc2 0.6.4",
- "objc2-core-foundation",
- "smol_str 0.3.6",
- "tracing",
- "x11-dl",
- "xkbcommon-dl",
-]
-
-[[package]]
-name = "floem-winit-core"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "bitflags 2.11.0",
- "cursor-icon",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "keyboard-types 0.8.3",
- "raw-window-handle",
- "serde",
- "smol_str 0.3.6",
- "web-time",
-]
-
-[[package]]
-name = "floem-winit-orbital"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "bitflags 2.11.0",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-core",
- "orbclient",
- "raw-window-handle",
- "redox_syscall 0.5.18",
- "smol_str 0.3.6",
- "tracing",
-]
-
-[[package]]
-name = "floem-winit-uikit"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "bitflags 2.11.0",
- "block2 0.6.2",
- "dispatch2",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-common",
- "floem-winit-core",
- "objc2 0.6.4",
- "objc2-core-foundation",
- "objc2-foundation 0.3.2",
- "objc2-ui-kit",
- "raw-window-handle",
- "serde",
- "smol_str 0.3.6",
- "tracing",
-]
-
-[[package]]
-name = "floem-winit-wayland"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "ahash",
- "bitflags 2.11.0",
- "calloop",
- "cursor-icon",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-common",
- "floem-winit-core",
- "libc",
- "memmap2",
- "raw-window-handle",
- "rustix",
- "sctk-adwaita",
- "smithay-client-toolkit",
- "smol_str 0.3.6",
- "tracing",
- "wayland-backend",
- "wayland-client",
- "wayland-protocols",
- "wayland-protocols-plasma",
-]
-
-[[package]]
-name = "floem-winit-web"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "atomic-waker",
- "bitflags 2.11.0",
- "concurrent-queue",
- "cursor-icon",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-core",
- "js-sys",
- "pin-project",
- "raw-window-handle",
- "smol_str 0.3.6",
- "tracing",
- "wasm-bindgen",
- "wasm-bindgen-futures",
- "web-sys",
- "web-time",
-]
-
-[[package]]
-name = "floem-winit-win32"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "bitflags 2.11.0",
- "cursor-icon",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-core",
- "raw-window-handle",
- "smol_str 0.3.6",
- "tracing",
- "unicode-segmentation",
- "windows-sys 0.59.0",
-]
-
-[[package]]
-name = "floem-winit-x11"
-version = "25.10.0"
-source = "git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1#133268de675a4fda70816d78a7a1435eb972fea1"
-dependencies = [
- "bitflags 2.11.0",
- "bytemuck",
- "calloop",
- "cursor-icon",
- "dpi 0.1.2 (git+https://github.com/lapce/winit?rev=133268de675a4fda70816d78a7a1435eb972fea1)",
- "floem-winit-common",
- "floem-winit-core",
- "libc",
- "percent-encoding",
- "raw-window-handle",
- "rustix",
- "smol_str 0.3.6",
- "tracing",
- "x11-dl",
- "x11rb",
- "xkbcommon-dl",
-]
-
-[[package]]
 name = "floem_reactive"
 version = "0.2.0"
 dependencies = [
@@ -1861,7 +1645,6 @@ name = "floem_renderer"
 version = "0.2.0"
 dependencies = [
  "crossbeam",
- "floem-winit",
  "fontique",
  "futures",
  "parking_lot",
@@ -1870,6 +1653,7 @@ dependencies = [
  "resvg",
  "wasm-bindgen-futures",
  "wgpu",
+ "winit",
 ]
 
 [[package]]
@@ -1879,13 +1663,13 @@ dependencies = [
  "anyhow",
  "anyrender",
  "anyrender_skia",
- "floem-winit",
  "floem_renderer",
  "kurbo",
  "parley",
  "peniko",
  "raw-window-handle",
  "resvg",
+ "winit",
 ]
 
 [[package]]
@@ -6365,9 +6149,9 @@ name = "ui-events-floem-winit"
 version = "0.2.0"
 dependencies = [
  "dpi 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)",
- "floem-winit",
  "ui-events",
  "web-time",
+ "winit",
 ]
 
 [[package]]
@@ -7559,6 +7343,223 @@ name = "windows_x86_64_msvc"
 version = "0.53.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d6bbff5f0aada427a1e5a6da5f1f98158182f26556f345ac9e04d36d0ebed650"
+
+[[package]]
+name = "winit"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316#f98ccf8efc5e3f6dd3e31b705178603f6556d316"
+dependencies = [
+ "bitflags 2.11.0",
+ "cfg_aliases",
+ "cursor-icon",
+ "dpi 0.1.2 (git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316)",
+ "libc",
+ "raw-window-handle",
+ "rustix",
+ "serde",
+ "smol_str 0.3.6",
+ "tracing",
+ "winit-android",
+ "winit-appkit",
+ "winit-common",
+ "winit-core",
+ "winit-orbital",
+ "winit-uikit",
+ "winit-wayland",
+ "winit-web",
+ "winit-win32",
+ "winit-x11",
+]
+
+[[package]]
+name = "winit-android"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316#f98ccf8efc5e3f6dd3e31b705178603f6556d316"
+dependencies = [
+ "android-activity",
+ "bitflags 2.11.0",
+ "dpi 0.1.2 (git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316)",
+ "ndk",
+ "raw-window-handle",
+ "smol_str 0.3.6",
+ "tracing",
+ "winit-core",
+]
+
+[[package]]
+name = "winit-appkit"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316#f98ccf8efc5e3f6dd3e31b705178603f6556d316"
+dependencies = [
+ "bitflags 2.11.0",
+ "block2 0.6.2",
+ "dispatch2",
+ "dpi 0.1.2 (git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316)",
+ "objc2 0.6.4",
+ "objc2-app-kit 0.3.2",
+ "objc2-core-foundation",
+ "objc2-core-graphics",
+ "objc2-core-video",
+ "objc2-foundation 0.3.2",
+ "raw-window-handle",
+ "smol_str 0.3.6",
+ "tracing",
+ "winit-common",
+ "winit-core",
+]
+
+[[package]]
+name = "winit-common"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316#f98ccf8efc5e3f6dd3e31b705178603f6556d316"
+dependencies = [
+ "memmap2",
+ "objc2 0.6.4",
+ "objc2-core-foundation",
+ "smol_str 0.3.6",
+ "tracing",
+ "winit-core",
+ "x11-dl",
+ "xkbcommon-dl",
+]
+
+[[package]]
+name = "winit-core"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316#f98ccf8efc5e3f6dd3e31b705178603f6556d316"
+dependencies = [
+ "bitflags 2.11.0",
+ "cursor-icon",
+ "dpi 0.1.2 (git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316)",
+ "keyboard-types 0.8.3",
+ "raw-window-handle",
+ "serde",
+ "smol_str 0.3.6",
+ "web-time",
+]
+
+[[package]]
+name = "winit-orbital"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316#f98ccf8efc5e3f6dd3e31b705178603f6556d316"
+dependencies = [
+ "bitflags 2.11.0",
+ "dpi 0.1.2 (git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316)",
+ "orbclient",
+ "raw-window-handle",
+ "redox_syscall 0.5.18",
+ "smol_str 0.3.6",
+ "tracing",
+ "winit-core",
+]
+
+[[package]]
+name = "winit-uikit"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316#f98ccf8efc5e3f6dd3e31b705178603f6556d316"
+dependencies = [
+ "bitflags 2.11.0",
+ "block2 0.6.2",
+ "dispatch2",
+ "dpi 0.1.2 (git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316)",
+ "objc2 0.6.4",
+ "objc2-core-foundation",
+ "objc2-foundation 0.3.2",
+ "objc2-ui-kit",
+ "raw-window-handle",
+ "serde",
+ "smol_str 0.3.6",
+ "tracing",
+ "winit-common",
+ "winit-core",
+]
+
+[[package]]
+name = "winit-wayland"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316#f98ccf8efc5e3f6dd3e31b705178603f6556d316"
+dependencies = [
+ "ahash",
+ "bitflags 2.11.0",
+ "calloop",
+ "cursor-icon",
+ "dpi 0.1.2 (git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316)",
+ "libc",
+ "memmap2",
+ "raw-window-handle",
+ "rustix",
+ "sctk-adwaita",
+ "smithay-client-toolkit",
+ "smol_str 0.3.6",
+ "tracing",
+ "wayland-backend",
+ "wayland-client",
+ "wayland-protocols",
+ "wayland-protocols-plasma",
+ "winit-common",
+ "winit-core",
+]
+
+[[package]]
+name = "winit-web"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316#f98ccf8efc5e3f6dd3e31b705178603f6556d316"
+dependencies = [
+ "atomic-waker",
+ "bitflags 2.11.0",
+ "concurrent-queue",
+ "cursor-icon",
+ "dpi 0.1.2 (git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316)",
+ "js-sys",
+ "pin-project",
+ "raw-window-handle",
+ "smol_str 0.3.6",
+ "tracing",
+ "wasm-bindgen",
+ "wasm-bindgen-futures",
+ "web-sys",
+ "web-time",
+ "winit-core",
+]
+
+[[package]]
+name = "winit-win32"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316#f98ccf8efc5e3f6dd3e31b705178603f6556d316"
+dependencies = [
+ "bitflags 2.11.0",
+ "cursor-icon",
+ "dpi 0.1.2 (git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316)",
+ "raw-window-handle",
+ "smol_str 0.3.6",
+ "tracing",
+ "unicode-segmentation",
+ "windows-sys 0.59.0",
+ "winit-core",
+]
+
+[[package]]
+name = "winit-x11"
+version = "0.31.0-beta.2"
+source = "git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316#f98ccf8efc5e3f6dd3e31b705178603f6556d316"
+dependencies = [
+ "bitflags 2.11.0",
+ "bytemuck",
+ "calloop",
+ "cursor-icon",
+ "dpi 0.1.2 (git+https://github.com/rust-windowing/winit?rev=f98ccf8efc5e3f6dd3e31b705178603f6556d316)",
+ "libc",
+ "percent-encoding",
+ "raw-window-handle",
+ "rustix",
+ "smol_str 0.3.6",
+ "tracing",
+ "winit-common",
+ "winit-core",
+ "x11-dl",
+ "x11rb",
+ "xkbcommon-dl",
+]
 
 [[package]]
 name = "winnow"
